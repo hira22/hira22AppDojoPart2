@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BasicArithmeticModel: ObservableObject {
+final class BasicArithmeticModel: ObservableObject {
     
     enum Operation:  String, CaseIterable {
         case addition = "+"
