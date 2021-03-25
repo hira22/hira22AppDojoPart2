@@ -38,8 +38,8 @@ struct ContentView: View {
                     switch model.resultState {
                     case .success(let result):
                         Text(String(result))
-                    case .failure(let error):
-                        Text(error.message)
+                    case .failure(let text):
+                        Text(text)
                     case .initial:
                         EmptyView()
                     }
