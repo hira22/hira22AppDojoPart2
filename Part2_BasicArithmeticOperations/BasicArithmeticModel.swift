@@ -27,7 +27,8 @@ final class BasicArithmeticModel: ObservableObject {
         }
     }
     
-    enum ResultState {
+    enum State {
+        case initial
         case success(Double)
         case failure(BasicArithmeticError)
     }
@@ -35,14 +36,13 @@ final class BasicArithmeticModel: ObservableObject {
     let operations = Operation.allCases
     @Published var values: [String] = ["", ""]
     @Published var selectedOperation: Operation = .addition
-    @Published var resultState: ResultState?
+    @Published var resultState: State = .initial
     
     func calculate() {
         
         let castedValues = values.compactMap { Double($0) }
         
         guard let firstValue = castedValues.first else {
-            resultState = .none
             return
         }
         

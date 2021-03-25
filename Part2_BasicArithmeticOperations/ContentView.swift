@@ -40,7 +40,7 @@ struct ContentView: View {
                         Text(String(result))
                     case .failure(let error):
                         Text(error.message)
-                    default:
+                    case .initial:
                         EmptyView()
                     }
                 }
